@@ -104,7 +104,6 @@ class LoginPanel extends React.Component<LoginProps, LoginPanelState> {
                     <Button loading={this.props.loginState.status === RequestStatus.pending} type="primary" htmlType="submit" className="login-page-form-button">
                         {Msg('Login.SignIn')}
                     </Button>
-                    {Msg('Login.New', { create: <a onClick={() => this.props.switchPanel('register')}>{Msg('Login.CreateAccount')}</a> })}
                     <br />
                     {Msg('Login.OrTry', { try: <a onClick={() => this.props.tempUse()}>{Msg('Login.Try')}</a> })}
                 </FormItem>

@@ -91,7 +91,6 @@
     "Login.ForgotPassword": "Forgot password?",
     "Login.SignIn": "Sign in",
     "Login.New": "New to Hitchhiker? {create}",
-    "Login.CreateAccount": "Create an account.",
     "Login.OrTry": "Or {try}",
     "Login.Try": "try without login.",
     "Login.ChangePwdSuccess": "Change password success!",

@@ -1,7 +1,9 @@
 version: '2'
 services:
   hitchhiker:
-    image: brookshi/hitchhiker:v0.14
+    build:
+      context: ../../../
+      dockerfile: Dockerfile
     container_name: hitchhiker
     environment:
       - HITCHHIKER_DB_HOST=hitchhiker-mysql
@@ -13,9 +15,9 @@ services:
     links:
       - hitchhiker-mysql:hitchhiker-mysql
     volumes:
-      - /my/hitchhiker/data:/usr/src/Hitchhiker/build/global_data/project
-      - /my/hitchhiker/backup:/usr/src/Hitchhiker/build/backup
-      - /my/hitchhiker/logs:/usr/src/Hitchhiker/build/logs
+      - $HOME/hitchhiker/data:/usr/src/Hitchhiker/build/global_data/project
+      - $HOME/hitchhiker/backup:/usr/src/Hitchhiker/build/backup
+      - $HOME/hitchhiker/logs:/usr/src/Hitchhiker/build/logs
   hitchhiker-mysql:
     image: mysql:5.7
     container_name: hitchhiker-mysql
@@ -24,4 +26,4 @@ services:
       - MYSQL_DATABASE=hitchhiker-prod
     volumes:
       - ./hitchhiker-mysql.cnf:/etc/mysql/conf.d/hitchhiker.cnf
-      - /my/hitchhiker/sqldata:/var/lib/mysql
+      - $HOME/hitchhiker/sqldata:/var/lib/mysql
